@@ -1,17 +1,3 @@
-import { Sidebar } from "@/components"
-import HomeImages from "@/components/homeImages/HomeImages"
-
-const Home = () => {
-
-  return (
-    <main className="flex justify-between ">
-      <Sidebar />
-      <section className="flex flex-col w-[80%] px-8 relative left-[20%] z-0">
-        <h1 className="font-bold text-2xl pl-3 pt-9">Gallery</h1>
-        <HomeImages />
-      </section>
-    </main>
-
-  )
-}
-export default Home
+version https://git-lfs.github.com/spec/v1
+oid sha256:8418a01017f1e8b802406a9dcb0e9a40b43240257840fd784491dad18fc7fa2f
+size 431

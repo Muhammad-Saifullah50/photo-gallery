@@ -1,31 +1,3 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { MyThemeProvider } from '@/components/theme/ThemeProvider'
-import { Footer, Navbar, Sidebar } from '@/components'
-
-const inter = Inter({
-  subsets: ['latin']
-})
-
-export const metadata: Metadata = {
-  title: 'Photoose',
-  description: 'Discover and share favorite images',
-}
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en"><MyThemeProvider>
-      <body className={`${inter.className} dark:bg-zinc-950`}>
-        <Navbar />
-        {children}
-        <Footer/>
-      </body>
-    </MyThemeProvider>
-    </html>
-  )
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a86fbfb21f3c97b6420460bc20431b44f00ed9b1849f2613f6b24ed15706d107
+size 694

@@ -1,26 +1,3 @@
-import Image from 'next/image'
-import React from 'react'
-
-type ImageCardProps = {
-  key: string
-  src: string
-  width: number
-  height: number
-  alt: string
-}
-const ImageCard = ({ key, src, width, height, alt }: ImageCardProps) => {
-  return (
-    <div key={key} className={`break-inside-avoid`}>
-      <Image
-        src={src}
-        blurDataURL={src.toString()}
-        width={width}
-        height={height}
-        alt={alt}
-        className='rounded-lg object-contain' 
-      />
-    </div>
-  )
-}
-
-export default ImageCard
+version https://git-lfs.github.com/spec/v1
+oid sha256:1442b868e9be7e09cba3c7b11fb65ca4628cd3493b2fca2fe1c0e5481bcf5257
+size 527

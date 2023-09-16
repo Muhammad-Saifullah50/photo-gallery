@@ -1,20 +1,3 @@
-import mongoose, { ConnectOptions, models } from "mongoose";
-let isConnected = false
-export const connectToDB = async () => {
-    mongoose.set('strictQuery', true)
-    if (isConnected) {
-        console.log('mongodb is connected') // is connected already
-        return
-    }
-    try {
-        await mongoose.connect(process.env.MONGODB_URI!, {
-            dbName: 'photoose',
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        } as ConnectOptions)
-        isConnected = true
-        console.log('mongodb connected')
-    } catch (error) {
-        console.error(error)
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:0575e081b4048aa2489bcb60ceacedb522780344e72a2d3e3f370c172be27db3
+size 605

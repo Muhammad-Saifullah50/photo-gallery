@@ -1,25 +1,3 @@
-import { connectToDB } from '@/lib/database';
-import { Schema, model, models } from 'mongoose'
-
-const UserSchema = new Schema({
-    email: {
-        type: String,
-        unique: [true, 'user aleready exists'],
-        required: [true, 'email is required'],
-    },
-    name: {
-        type: String,
-        required: [true, 'username is required'],
-        match: [/^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/, "Username invalid, it should contain 8-20 alphanumeric letters and be unique!"]
-    },
-    image: {
-        type: String,
-    },
-})
-
-export const getUserModel = async () => {
-    await connectToDB();
-    const User = models.User || model('User', UserSchema);
-    return User
-}
-export default getUserModel
+version https://git-lfs.github.com/spec/v1
+oid sha256:2c15be80e85a725d09f1db6065a93107e99226cf1e91b277786dd8dbde25633f
+size 731
