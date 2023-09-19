@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4d864e7f415c3f5057a3f5562a7c238cb8e4d4fbcfea27397e1ab6b6cde930ce
-size 490
+import Image from 'next/image'
+import React from 'react'
+
+type ImageCardProps = {
+  key: string
+  src: string
+  width: number
+  height: number
+  alt: string
+}
+const ImageCard = ({ key, src, width, height, alt }: ImageCardProps) => {
+  return (
+    <div key={key} className={`break-inside-avoid`}>
+      <Image
+        src={src}
+        width={width}
+        height={height}
+        alt={alt}
+        className='rounded-lg object-contain' 
+      />
+    </div>
+  )
+}
+
+export default ImageCard

@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d1d3e740cbbea87f3e82e91736a431b32a458221e269eb3bf2623d82cb408f97
-size 357
+import React from 'react'
+
+const Footer = () => {
+  const year = new Date().getFullYear();
+  return (
+<footer>
+  <div className="footer flex justify-between items-center bg-white dark:bg-zinc-950  relative px-12 py-4 border-t-2 border-gray-600 z-40">
+    <p>Photoose @{year}</p>
+    <p>All Rights Reserved.</p>
+  </div>
+</footer>  )
+}
+
+export default Footer

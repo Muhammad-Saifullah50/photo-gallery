@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:33b6def64bf0ffc755390fd6f0db0cd557297b0d7dcf98b48d4775b0a73e1031
-size 268
+import { getCurrentUser } from '@/lib/session'
+import React from 'react'
+
+const Profile = async () => {
+
+    const session = await getCurrentUser()
+    // console.log(session)
+  return (
+    <section>{session?.user?.name}Profile</section>
+  )
+}
+
+export default Profile

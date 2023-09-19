@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:11997c7c6a8c38611a63c12e3e08d2b17ce769d72dbf8cbd257d193889fa75b4
-size 217
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+::-webkit-scrollbar-track {
+    background: #f1f1f148;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background: #888;
+  }
