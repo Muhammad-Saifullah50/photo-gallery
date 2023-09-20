@@ -2,7 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { MyThemeProvider } from '@/components/theme/ThemeProvider'
-import { Navbar } from '@/components'
+import { Footer, Navbar } from '@/components'
 
 
 const inter = Inter({
@@ -22,8 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en"><MyThemeProvider>
       <body className={`${inter.className} dark:bg-zinc-950`}>
-      <Navbar />
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </MyThemeProvider>
     </html>

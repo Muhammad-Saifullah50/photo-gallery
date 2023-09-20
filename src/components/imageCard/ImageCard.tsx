@@ -16,6 +16,8 @@ const ImageCard = ({ key, src, width, height, alt }: ImageCardProps) => {
         width={width}
         height={height}
         alt={alt}
+        placeholder='blur'
+        blurDataURL={src}
         className='rounded-lg object-contain' 
       />
     </div>

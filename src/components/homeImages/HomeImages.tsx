@@ -47,8 +47,7 @@ type Result = {
 }
 const HomeImages = () => {
     const [searchValue, setSearchValue] = useState("Wallpapers")
-    const [searchResults, setSearchResults] = useState<searchResult | null>(null
-    );
+    const [searchResults, setSearchResults] = useState<searchResult | null>(null);
     const [currPage, setCurrPage] = useState(1)
 
 
@@ -56,7 +55,7 @@ const HomeImages = () => {
     const clientId = process.env.NEXT_PUBLIC_UNSPLASH_CLIENT_ID
 
     sessionStorage.setItem('effectHasRun', 'false')
-    
+
     useEffect(() => {
         const effectStatus = sessionStorage.getItem('effectHasRun')
         if (effectStatus !== 'true') {
@@ -96,7 +95,8 @@ const HomeImages = () => {
 
     const handleNextPage = async () => {
         try {
-            setCurrPage(currPage + 1)
+            const nextPage = currPage + 1
+            setCurrPage(nextPage)
             const response = await fetch(`${unsplashRoot}/search/photos?query=${searchValue}&client_id=${clientId}&per_page=30&page=${currPage}`)
 
             const data = await response.json();
@@ -109,8 +109,8 @@ const HomeImages = () => {
 
     const handlePrevPage = async () => {
         try {
-            setCurrPage(currPage - 1)
-
+            const prevPage = currPage - 1
+            setCurrPage(prevPage)
             const response = await fetch(`${unsplashRoot}/search/photos?query=${searchValue}&client_id=${clientId}&per_page=30&page=${currPage}`)
 
             const data = await response.json();
