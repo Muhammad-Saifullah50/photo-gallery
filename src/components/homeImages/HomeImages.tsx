@@ -120,6 +120,7 @@ const HomeImages = () => {
             console.log(error)
         }
     }
+   
     return (<>
         <div className="flex gap-5 justify-between my-4 w-full px-6" id='top'>
             <Input value={searchValue} onChange={handleChange} className="w-full" />
@@ -133,6 +134,7 @@ const HomeImages = () => {
                     width={result.width}
                     height={result.height}
                     alt={result.alt_description}
+                
                 />
 
             ))}

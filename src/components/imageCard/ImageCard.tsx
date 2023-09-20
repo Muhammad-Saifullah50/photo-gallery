@@ -8,7 +8,11 @@ type ImageCardProps = {
   height: number
   alt: string
 }
+
+
 const ImageCard = ({ key, src, width, height, alt }: ImageCardProps) => {
+
+ 
   return (
     <div key={key} className={`break-inside-avoid`}>
       <Image
@@ -16,8 +20,6 @@ const ImageCard = ({ key, src, width, height, alt }: ImageCardProps) => {
         width={width}
         height={height}
         alt={alt}
-        placeholder='blur'
-        blurDataURL={src}
         className='rounded-lg object-contain' 
       />
     </div>
