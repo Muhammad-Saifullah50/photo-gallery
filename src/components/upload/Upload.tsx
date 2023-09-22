@@ -3,8 +3,21 @@ import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { AiOutlineUpload } from 'react-icons/ai'
 import { ChangeEvent, useState } from 'react'
+import { useToast } from "@/components/ui/use-toast"
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
+
+
 
 const Upload = () => {
+    const { toast } = useToast()
+
     const [imageUrl, setImageUrl] = useState<string>('')
     const handleImageChange = async (e: ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
@@ -21,7 +34,6 @@ const Upload = () => {
             reader.onload = async () => {
                 const result = reader.result as string
                 setImageUrl(result)
-
             }
 
         } catch (error) {
@@ -41,7 +53,13 @@ const Upload = () => {
                 }
             })
             const data = await response.json()
-            console.log(data)
+            // console.log(data.message)
+
+            toast({
+                title: data.status === 200 ? "Success" : "Upload Failed",
+                description: data.message,
+
+            })
         } catch (error) {
             console.error(error)
         }
@@ -55,9 +73,26 @@ const Upload = () => {
                 accept="image/*"
                 onChange={handleImageChange}
             />
-            <Button type='button' className='gap-3' onClick={handleClick}>
-                <AiOutlineUpload size='25' />Upload</Button>
-        </div>
+
+            <Dialog>
+                <DialogTrigger>
+                    <Button type='button' className='gap-3' onClick={handleClick}>
+                        <AiOutlineUpload size='25' />Upload</Button>
+                </DialogTrigger>
+                <DialogContent>
+                    <DialogHeader>
+                        <DialogTitle>
+                            Choose an album for your image
+                        </DialogTitle>
+                        <DialogDescription>
+                            album1
+                            album2
+                            album3
+                        </DialogDescription>
+                    </DialogHeader>
+                </DialogContent>
+            </Dialog>
+        </div >
 
     </>)
 }

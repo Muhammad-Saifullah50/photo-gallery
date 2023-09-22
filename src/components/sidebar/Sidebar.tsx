@@ -26,14 +26,14 @@ const Sidebar = async () => {
           Gallery
         </Link>
 
-        <Link className='hover:bg-gray-200 dark:hover:bg-opacity-20 w-full px-3 py-2 rounded-r-full flex gap-5' href='/'>
+        <Link className='hover:bg-gray-200 dark:hover:bg-opacity-20 w-full px-3 py-2 rounded-r-full flex gap-5' href={`/favorites/${userId}`}>
           <span className='hidden md:block'>
             <AiOutlineHeart size='25' />
           </span>
           Favorites
         </Link>
 
-        <Link className='hover:bg-gray-200 dark:hover:bg-opacity-20 w-full px-3 py-2 rounded-r-full flex gap-5' href='/'>
+        <Link className='hover:bg-gray-200 dark:hover:bg-opacity-20 w-full px-3 py-2 rounded-r-full flex gap-5' href={`/albums/${userId}`}>
           <span className='hidden md:block'>
             <IoAlbums size='25' />
           </span>

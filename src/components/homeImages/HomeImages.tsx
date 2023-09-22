@@ -63,6 +63,7 @@ const HomeImages = () => {
                 const response = await fetch(`${unsplashRoot}/search/photos?query=${searchValue}&client_id=${clientId}&per_page=30`)
 
                 const data = await response.json();
+                console.log(data)
                 setSearchResults(data)
                 sessionStorage.setItem('effectHasRun', 'true')
                 return data

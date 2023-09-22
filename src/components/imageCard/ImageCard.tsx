@@ -2,7 +2,6 @@ import Image from 'next/image'
 import React from 'react'
 
 type ImageCardProps = {
-  key: string
   src: string
   width: number
   height: number
@@ -10,17 +9,18 @@ type ImageCardProps = {
 }
 
 
-const ImageCard = ({ key, src, width, height, alt }: ImageCardProps) => {
+const ImageCard = ({ src, width, height, alt }: ImageCardProps) => {
 
- 
+
   return (
-    <div key={key} className={`break-inside-avoid`}>
+    <div key={src} className={`break-inside-avoid`}>
       <Image
         src={src}
         width={width}
         height={height}
         alt={alt}
-        className='rounded-lg object-contain' 
+        className='rounded-lg object-contain'
+       
       />
     </div>
   )

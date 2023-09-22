@@ -1,12 +1,10 @@
 "use client"
-import { CldVideoPlayer } from "next-cloudinary";
-
 
 const Home = () => {
   return (
     <section className="w-full h-full overflow-hidden relative -z-10">
       <video autoPlay muted loop className="w-full h-full object-cover md:object-fill "> 
-        <source src="https://res.cloudinary.com/daqcrzwnr/video/upload/v1695178102/bg_1_vdrpmj.mp4" type="video/mp4" />
+        <source src="/bg.mp4" type="video/mp4" />
        
        </video>
 

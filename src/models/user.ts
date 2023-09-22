@@ -15,9 +15,10 @@ const UserSchema = new Schema({
     image: {
         type: String,
     },
-    uploadedImages: [
+    albums: [
         {
-            type: String,
+            name: String,
+            images: []
         },
     ],
 })

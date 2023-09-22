@@ -6,6 +6,7 @@ import ImageCard from "./imageCard/ImageCard";
 import Footer from "./footer/Footer";
 import GettingStartedBtn from "./gettingStartedBtn/GettingStartedBtn";
 import Upload from "./upload/Upload";
+import NewAlbum from "./new-album/NewAlbum";
 export {
     Navbar,
     AuthProviders,
@@ -14,5 +15,6 @@ export {
     ImageCard,
     Footer,
     GettingStartedBtn,
-    Upload
+    Upload,
+    NewAlbum
 }

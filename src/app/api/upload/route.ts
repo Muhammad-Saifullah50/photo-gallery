@@ -21,7 +21,7 @@ export const POST = async (request: NextRequest) => {
     // console.log(imageUrl)
 
     if (!imageUrl) {
-        return NextResponse.json({ message: 'image path is required' }, { status: 400 })
+        return NextResponse.json({ message: 'Image path is required' }, { status: 400 })
     }
 
     try {
@@ -40,14 +40,14 @@ export const POST = async (request: NextRequest) => {
         const sessionUser = await User.findOne({
             email: session?.user?.email,
         });
-        if (sessionUser) {
-            sessionUser.uploadedImages.push(result.secure_url)
-            await sessionUser.save();
-        }
-        return NextResponse.json({message: 'image saved successfully'}, { status: 200 })
+        // if (sessionUser) {
+        //     sessionUser.uploadedImages.push(result.secure_url)
+        //     await sessionUser.save();
+        // }
+        return NextResponse.json({message: 'Image uploaded successfully'}, { status: 200 })
     }
     catch (error) {
         console.log(error)
-        return NextResponse.json({ message: "failed to upload image " }, { status: 500 })
+        return NextResponse.json({ message: "Failed to upload image " }, { status: 500 })
     }
 }   
