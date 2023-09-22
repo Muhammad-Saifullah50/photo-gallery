@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import { getCurrentUser } from '@/lib/session'
 import { AuthProviders, GettingStartedBtn, SignoutBtn } from '..'
-import ThemeSwitcher from '../theme/ThemeSwitcher'
+import { ModeToggle } from '../theme/ThemeSwitcher'
 import Link from 'next/link'
 import { Button } from '../ui/button'
 const Navbar = async () => {
@@ -24,7 +24,7 @@ const Navbar = async () => {
             </div>
 
             <div className="profile flex justify-between items-center gap-5">
-                <ThemeSwitcher />
+                <ModeToggle />
                 <div className="profileinfo flex justify-between items-center gap-3">
 
                     {session?.user ?

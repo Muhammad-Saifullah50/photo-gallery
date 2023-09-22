@@ -1,11 +1,9 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { MyThemeProvider } from '@/components/theme/ThemeProvider'
+import { ThemeProvider } from '@/components/theme/ThemeProvider'
 import { Footer, Navbar } from '@/components'
 import { Toaster } from "@/components/ui/toaster"
-
-
 
 const inter = Inter({
   subsets: ['latin']
@@ -22,14 +20,21 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en"><MyThemeProvider>
+    <html lang="en">
       <body className={`${inter.className} dark:bg-zinc-950`}>
-        <Navbar />
-        {children}
-        <Toaster />
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+          <Toaster />
+          <Footer />
+        </ThemeProvider>
       </body>
-    </MyThemeProvider>
-    </html>
+
+    </html >
   )
 }

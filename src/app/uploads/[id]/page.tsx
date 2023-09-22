@@ -38,17 +38,21 @@ const UploadPage = async () => {
                                             width={269}
                                             height={180}
                                             alt="image"
-                                            
+
                                         />
                                     ))
                                 ) : (
-                                    <p>Sorry! You have not uploaded any images yet</p>
+                                    <div className="flex justify-center items-center w-full pt-40">
+                                        <p className="font-semibold text-lg">Sorry! You have not uploaded any images yet</p>
+                                    </div>
                                 )
 
                             );
                         })
                     ) : (
-                        <p>No albums found</p>
+                        <div className="flex justify-center items-center w-full pt-36">
+                            <p className="font-semibold text-lg">Sorry! No albums found</p>
+                        </div>
                     )}
                 </div>
             </section>

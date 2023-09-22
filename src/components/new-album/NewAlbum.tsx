@@ -14,9 +14,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "../ui/button";
 import { ChangeEvent, useState } from "react";
+import { toast, useToast } from "../ui/use-toast";
 
 
 const NewAlbum = () => {
+    const { toast } = useToast()
     const [albumName, setAlbumName] = useState('')
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +28,7 @@ const NewAlbum = () => {
     const handleClick = async () => {
         let request = await fetch('/api/newalbum', {
             method: 'POST',
-            headers:{
+            headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
@@ -34,7 +36,14 @@ const NewAlbum = () => {
             })
         })
         let data = await request.json()
-        console.log(data)
+        setAlbumName('')
+        // console.log(data)
+
+        toast({
+            variant: data.message === 'Album added successfully' ? "default" : "destructive",
+            title: data.message === 'Album added successfully' ? "Success" : "Upload Failed",
+            description: data.message,
+        })
     }
 
     return (

@@ -18,15 +18,16 @@ export const POST = async (request: NextRequest) => {
         const sessionUser = await User.findOne({
             email: session?.user?.email,
         })
-        console.log(sessionUser)
+        // console.log(sessionUser)
         if (sessionUser) {
             const albumName = response.albumname.toString()
-            const newAlbum = {name: albumName, images: []}
+            const newAlbum = { name: albumName, images: [] }
             sessionUser.albums.push(newAlbum)
             await sessionUser.save()
         }
 
-        return NextResponse.json({ message: "Album added successfully" }, { status: 200 })
+        return NextResponse.json(
+            { message: "Album added successfully" }, { status: 200 })
     } catch (error) {
         console.error(error)
         return NextResponse.json({ message: error }, { status: 400 })
