@@ -3,6 +3,7 @@ import { v2 as cloudinary } from 'cloudinary'
 import getUserModel from "@/models/user";
 import { getCurrentUser } from "@/lib/session";
 import { Album } from "@/app/albums/[id]/page";
+import { Session } from "next-auth";
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_NAME!,
@@ -12,14 +13,14 @@ cloudinary.config({
 
 export const POST = async (request: NextRequest) => {
 
-    const session = await getCurrentUser();
+    const session: Session | null = await getCurrentUser();
 
     const getUser = async () => {
         const user = await getUserModel()
         return user
     }
     const imageUrl = await request.text();
-    // console.log(imageUrl)
+    console.log(imageUrl)
 
     if (!imageUrl) {
         return NextResponse.json({ message: 'Image path is required' }, { status: 400 })
