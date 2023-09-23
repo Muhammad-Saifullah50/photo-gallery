@@ -16,7 +16,7 @@ import { Button } from '../ui/button'
 
 
 const Upload = ({ albums }: any) => {
-   
+
     const { toast } = useToast()
     const [selectedAlbum, setSelectedAlbum] = useState("")
     console.log(selectedAlbum)
@@ -91,7 +91,7 @@ const Upload = ({ albums }: any) => {
                             Choose an album for your image
                         </DialogTitle>
                         <DialogDescription>
-                            <select name="album" id="album" value={selectedAlbum} onChange={handleAlbumChange}>
+                            <select name="album" id="album" value={selectedAlbum === '' ? albums.length === 1 ? albums[0].id : '' : ''} onChange={handleAlbumChange}>
                                 {albums?.map((item: any) => (
                                     <option
                                         className='text-base font-medium my-2'
