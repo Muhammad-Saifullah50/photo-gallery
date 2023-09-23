@@ -16,5 +16,5 @@ export {
     Footer,
     GettingStartedBtn,
     Upload,
-    NewAlbum
+    NewAlbum,
 }

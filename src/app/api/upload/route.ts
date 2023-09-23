@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { v2 as cloudinary } from 'cloudinary'
 import getUserModel from "@/models/user";
 import { getCurrentUser } from "@/lib/session";
+import { Album } from "@/app/albums/[id]/page";
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_NAME!,
@@ -40,11 +41,12 @@ export const POST = async (request: NextRequest) => {
         const sessionUser = await User.findOne({
             email: session?.user?.email,
         });
+        console.log(sessionUser)
         // if (sessionUser) {
-        //     sessionUser.uploadedImages.push(result.secure_url)
+        //     sessionUser.albums.map((album: Album) => albumId === sessionUser.album._id)
         //     await sessionUser.save();
         // }
-        return NextResponse.json({message: 'Image uploaded successfully'}, { status: 200 })
+        return NextResponse.json({ message: 'Image uploaded successfully' }, { status: 200 })
     }
     catch (error) {
         console.log(error)

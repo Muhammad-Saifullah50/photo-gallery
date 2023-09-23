@@ -53,8 +53,10 @@ const HomeImages = () => {
 
     const unsplashRoot = 'https://api.unsplash.com'
     const clientId = process.env.NEXT_PUBLIC_UNSPLASH_CLIENT_ID
+    useEffect(() => {
+        sessionStorage.setItem('effectHasRun', 'false')
+    }, [])
 
-    sessionStorage.setItem('effectHasRun', 'false')
 
     useEffect(() => {
         const effectStatus = sessionStorage.getItem('effectHasRun')
@@ -121,7 +123,7 @@ const HomeImages = () => {
             console.log(error)
         }
     }
-   
+
     return (<>
         <div className="flex gap-5 justify-between my-4 w-full px-6" id='top'>
             <Input value={searchValue} onChange={handleChange} className="w-full" />
@@ -135,7 +137,7 @@ const HomeImages = () => {
                     width={result.width}
                     height={result.height}
                     alt={result.alt_description}
-                
+
                 />
 
             ))}
