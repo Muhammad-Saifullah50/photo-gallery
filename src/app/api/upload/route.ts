@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { v2 as cloudinary } from 'cloudinary'
 import getUserModel from "@/models/user";
 import { getCurrentUser } from "@/lib/session";
-import { Album } from "@/app/albums/[id]/page";
 import { Session } from "next-auth";
+import { Album } from "@/app/albums/[id]/page";
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_NAME!,
@@ -12,18 +12,15 @@ cloudinary.config({
 })
 
 export const POST = async (request: NextRequest) => {
-
     const session: Session | null = await getCurrentUser();
-
     const getUser = async () => {
         const user = await getUserModel()
         return user
     }
-    const imageUrl = await request.text();
-    console.log(imageUrl)
+    const data = await request.json();
 
-    if (!imageUrl) {
-        return NextResponse.json({ message: 'Image path is required' }, { status: 400 })
+    if (!data.image && !data.albumId) {
+        return NextResponse.json({ message: 'Image path and album is required' }, { status: 400 })
     }
 
     try {
@@ -34,20 +31,28 @@ export const POST = async (request: NextRequest) => {
             transformation: [[{ width: 1000, height: 752, crop: "scale" }]]
         }
 
-        const result = await cloudinary.uploader.upload(imageUrl, options)
-        // console.log(result)
+        const result = await cloudinary.uploader.upload(data.image, options)
 
         const User = await getUser();
 
         const sessionUser = await User.findOne({
             email: session?.user?.email,
         });
-        console.log(sessionUser)
-        // if (sessionUser) {
-        //     sessionUser.albums.map((album: Album) => albumId === sessionUser.album._id)
-        //     await sessionUser.save();
-        // }
-        return NextResponse.json({ message: 'Image uploaded successfully' }, { status: 200 })
+
+        if (sessionUser) {
+
+            sessionUser.albums.forEach((album: Album) => {
+                console.log(data.albumId)
+                console.log(album._id.toString())
+                if (album._id.toString() === data.albumId) {
+                    //@ts-ignore
+                    album.images.push(result.secure_url)
+                }
+            })
+            await sessionUser.save();
+
+            return NextResponse.json({ message: 'Image uploaded successfully' }, { status: 200 })
+        }
     }
     catch (error) {
         console.log(error)

@@ -15,12 +15,13 @@ import {
 import { Button } from '../ui/button'
 
 
-
 const Upload = ({ albums }: any) => {
+   
     const { toast } = useToast()
-    const [selectedAlbum, setSelectedAlbum] = useState<string>()
+    const [selectedAlbum, setSelectedAlbum] = useState("")
+    console.log(selectedAlbum)
     const [imageUrl, setImageUrl] = useState<string>('')
-    const [albumId, setAlbumId] = useState('')
+    // console.log(imageUrl)
     const handleImageChange = async (e: ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
 
@@ -37,21 +38,18 @@ const Upload = ({ albums }: any) => {
                 const result = reader.result as string
                 setImageUrl(result)
             }
-
         } catch (error) {
             console.error(error)
         }
-
-
     }
 
     const handleClick = async () => {
         try {
             const newData = {
                 image: imageUrl,
-                album: selectedAlbum
+                albumId: selectedAlbum
             }
-            console.log(newData)
+            // console.log(newData)
             const response = await fetch('/api/upload', {
                 method: 'POST',
                 body: JSON.stringify(newData),
@@ -61,7 +59,6 @@ const Upload = ({ albums }: any) => {
             })
             const data = await response.json()
             // console.log(data.message)
-
             toast({
                 title: data.message === 'Image uploaded successfully' ? "Success" : "Upload Failed",
                 description: data.message,
