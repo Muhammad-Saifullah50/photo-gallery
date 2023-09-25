@@ -47,7 +47,7 @@ const Upload = ({ albums }: any) => {
         try {
             const newData = {
                 image: imageUrl,
-                albumId: selectedAlbum
+                albumId: selectedAlbum === '' ? albums[0].id : selectedAlbum
             }
             // console.log(newData)
             const response = await fetch('/api/upload', {
@@ -91,7 +91,7 @@ const Upload = ({ albums }: any) => {
                             Choose an album for your image
                         </DialogTitle>
                         <DialogDescription>
-                            <select name="album" id="album" value={selectedAlbum === '' ? albums.length === 1 ? albums[0].id : '' : ''} onChange={handleAlbumChange}>
+                            <select name="album" id="album" value={selectedAlbum === '' ? albums[0].id : selectedAlbum} onChange={handleAlbumChange}>
                                 {albums?.map((item: any) => (
                                     <option
                                         className='text-base font-medium my-2'

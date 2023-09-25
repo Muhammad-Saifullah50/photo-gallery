@@ -42,8 +42,8 @@ export const POST = async (request: NextRequest) => {
         if (sessionUser) {
 
             sessionUser.albums.forEach((album: Album) => {
-                console.log(data.albumId)
-                console.log(album._id.toString())
+                // console.log(data.albumId)
+                // console.log(album._id.toString())
                 if (album._id.toString() === data.albumId) {
                     //@ts-ignore
                     album.images.push(result.secure_url)
