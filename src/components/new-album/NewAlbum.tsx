@@ -15,35 +15,47 @@ import { Input } from "@/components/ui/input";
 import { Button } from "../ui/button";
 import { ChangeEvent, useState } from "react";
 import { toast, useToast } from "../ui/use-toast";
+import { TailSpin } from 'react-loader-spinner'
+
 
 
 const NewAlbum = () => {
     const { toast } = useToast()
     const [albumName, setAlbumName] = useState('')
+    const [submitting, setSubmitting] = useState(false)
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         let albumname = e.target.value
         setAlbumName(albumname)
     }
     const handleClick = async () => {
-        let request = await fetch('/api/newalbum', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                albumname: albumName,
+        try {
+            setSubmitting(true)
+            let request = await fetch('/api/newalbum', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    albumname: albumName,
+                })
             })
-        })
-        let data = await request.json()
-        setAlbumName('')
-        // console.log(data)
+            let data = await request.json()
+            setAlbumName('')
+            // console.log(data)
 
-        toast({
-            variant: data.message === 'Album added successfully' ? "default" : "destructive",
-            title: data.message === 'Album added successfully' ? "Success" : "Upload Failed",
-            description: data.message,
-        })
+            toast({
+                variant: data.message === 'Album added successfully' ? "default" : "destructive",
+                title: data.message === 'Album added successfully' ? "Success" : "Upload Failed",
+                description: data.message,
+            })
+        } catch (error) {
+            console.error(error)
+        }
+        finally {
+            setSubmitting(false)
+        }
+
     }
 
     return (
@@ -60,7 +72,19 @@ const NewAlbum = () => {
                 </AlertDialogDescription>
                 <AlertDialogFooter>
                     <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction onClick={handleClick}>Create</AlertDialogAction>
+                    <AlertDialogAction onClick={handleClick}>{submitting ? 'Creating' : "Create"}
+                        {submitting ? <span className='ml-2'>
+                            <TailSpin
+                                height="25"
+                                width="25"
+                                color="#FFFFFF"
+                                ariaLabel="tail-spin-loading"
+                                radius="1"
+                                wrapperStyle={{}}
+                                wrapperClass=""
+                                visible={true}
+                            /></span> : null}
+                    </AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>

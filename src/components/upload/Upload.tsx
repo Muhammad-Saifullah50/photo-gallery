@@ -3,6 +3,7 @@ import { Input } from '../ui/input'
 import { AiOutlineUpload } from 'react-icons/ai'
 import { ChangeEvent, useState } from 'react'
 import { useToast } from "@/components/ui/use-toast"
+import { TailSpin } from 'react-loader-spinner'
 import {
     Dialog,
     DialogContent,
@@ -19,7 +20,8 @@ const Upload = ({ albums }: any) => {
 
     const { toast } = useToast()
     const [selectedAlbum, setSelectedAlbum] = useState("")
-    console.log(selectedAlbum)
+    const [submitting, setSubmitting] = useState(false)
+    // console.log(selectedAlbum)
     const [imageUrl, setImageUrl] = useState<string>('')
     // console.log(imageUrl)
     const handleImageChange = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -45,6 +47,7 @@ const Upload = ({ albums }: any) => {
 
     const handleClick = async () => {
         try {
+            setSubmitting(true)
             const newData = {
                 image: imageUrl,
                 albumId: selectedAlbum === '' ? albums[0].id : selectedAlbum
@@ -66,6 +69,9 @@ const Upload = ({ albums }: any) => {
             })
         } catch (error) {
             console.error(error)
+        }
+        finally {
+            setSubmitting(false)
         }
     }
     const handleAlbumChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -102,7 +108,19 @@ const Upload = ({ albums }: any) => {
                         </DialogDescription>
                     </DialogHeader>
                     <DialogFooter>
-                        <Button onClick={handleClick}>Continue</Button>
+                        <Button onClick={handleClick}>{submitting ? 'Uploading' : 'Continue'}
+                            {submitting ? <span className='ml-2'>
+                                <TailSpin
+                                    height="25"
+                                    width="25"
+                                    color="#FFFFFF"
+                                    ariaLabel="tail-spin-loading"
+                                    radius="1"
+                                    wrapperStyle={{}}
+                                    wrapperClass=""
+                                    visible={true}
+                                /></span> : null}
+                        </Button>
                     </DialogFooter>
                 </DialogContent>
             </Dialog>

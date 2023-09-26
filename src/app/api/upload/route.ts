@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 import { v2 as cloudinary } from 'cloudinary'
 import getUserModel from "@/models/user";
 import { getCurrentUser } from "@/lib/session";
@@ -19,8 +20,8 @@ export const POST = async (request: NextRequest) => {
     }
     const data = await request.json();
 
-    if (!data.image && !data.albumId) {
-        return NextResponse.json({ message: 'Image path and album is required' }, { status: 400 })
+    if (!data.image || !data.albumId) {
+        return NextResponse.json({ message: 'Image and album is required' }, { status: 400 })
     }
 
     try {
