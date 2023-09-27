@@ -18,7 +18,7 @@ const AlbumDetails = async ({ params }: any) => {
     email: session?.user?.email,
   });
 
-  const currentAlbum = sessionUser.albums.find((album: Album) => (
+  const currentAlbum = sessionUser?.albums.find((album: Album) => (
     album._id.toString() === params.Id
   ))
   // console.log(currentAlbum)
@@ -27,11 +27,13 @@ const AlbumDetails = async ({ params }: any) => {
       <Sidebar />
       <section className="flex flex-col w-[80%] px-8 relative left-[20%] z-0">
         <div className="flex pl-3 pt-9 justify-between items-center">
-          <h1 className="font-bold text-2xl ">{currentAlbum.name}</h1>
+          <h1 className="font-bold text-2xl ">{currentAlbum?.name}</h1>
         </div>
 
-        <div className="columns-1 sm:columns-2 md:columns-3 xl:columns-4 gap-4 mx-auto p-5 space-y-5">
-          {currentAlbum.images.length > 0 ? currentAlbum.images.map((image: string, i: number) => (
+        <div className={`${currentAlbum?.images.length > 0
+          ? 'columns-1 sm:columns-2 md:columns-3 xl:columns-4 gap-4 mx-auto p-5 space-y-5'
+          : 'flex justify-center items-center w-full h-full'}`}>
+          {currentAlbum?.images.length > 0 ? currentAlbum?.images.map((image: string, i: number) => (
             <ImageCard
               key={i}
               src={image}
@@ -39,10 +41,8 @@ const AlbumDetails = async ({ params }: any) => {
               height={150}
               alt="image"
             />
-          )):(
-            <div className="flex justify-center items-center w-full h-full pt-40 ">
-            <p className="font-semibold text-lg text-center">No images are uploaded in this folder yet</p>
-        </div>
+          )) : (
+              <p className="font-semibold text-lg">No images are uploaded in this folder yet</p>
           )}
         </div>
       </section>

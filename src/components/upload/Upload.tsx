@@ -4,6 +4,8 @@ import { AiOutlineUpload } from 'react-icons/ai'
 import { ChangeEvent, useState } from 'react'
 import { useToast } from "@/components/ui/use-toast"
 import { TailSpin } from 'react-loader-spinner'
+import { X } from "lucide-react"
+
 import {
     Dialog,
     DialogContent,
@@ -14,6 +16,7 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { Button } from '../ui/button'
+import { useTheme } from 'next-themes'
 
 
 const Upload = ({ albums }: any) => {
@@ -21,7 +24,9 @@ const Upload = ({ albums }: any) => {
     const { toast } = useToast()
     const [selectedAlbum, setSelectedAlbum] = useState("")
     const [submitting, setSubmitting] = useState(false)
+    const [open, setOpen] = useState(false)
     // console.log(selectedAlbum)
+    const { theme } = useTheme()
     const [imageUrl, setImageUrl] = useState<string>('')
     // console.log(imageUrl)
     const handleImageChange = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -63,6 +68,7 @@ const Upload = ({ albums }: any) => {
             const data = await response.json()
             // console.log(data.message)
             toast({
+                variant: data.message === 'Image uploaded successfully' ? "default" : "destructive",
                 title: data.message === 'Image uploaded successfully' ? "Success" : "Upload Failed",
                 description: data.message,
 
@@ -72,6 +78,7 @@ const Upload = ({ albums }: any) => {
         }
         finally {
             setSubmitting(false)
+            setOpen(false)
         }
     }
     const handleAlbumChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -86,13 +93,14 @@ const Upload = ({ albums }: any) => {
                 onChange={handleImageChange}
             />
 
-            <Dialog>
-                <DialogTrigger>
+            <Dialog open={open} onOpenChange={() => setOpen(true)}>
+                <DialogTrigger >
                     <span className='gap-3 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 bg-slate-900 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90 h-10 px-4 py-2' >
                         <AiOutlineUpload size='25' />Upload</span>
                 </DialogTrigger>
                 <DialogContent>
                     <DialogHeader>
+                        <X className="h-4 w-4 absolute right-8 top-4" onClick={() => setOpen(false)}></X>
                         <DialogTitle>
                             Choose an album for your image
                         </DialogTitle>
@@ -113,7 +121,7 @@ const Upload = ({ albums }: any) => {
                                 <TailSpin
                                     height="25"
                                     width="25"
-                                    color="#FFFFFF"
+                                    color={`${theme === 'dark' ? '#000000' : '#FFFFFF'}`}
                                     ariaLabel="tail-spin-loading"
                                     radius="1"
                                     wrapperStyle={{}}

@@ -1,21 +1,21 @@
 "use client"
 import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+    DialogFooter
+} from "@/components/ui/dialog"
 
 import { Input } from "@/components/ui/input";
 import { Button } from "../ui/button";
 import { ChangeEvent, useState } from "react";
 import { toast, useToast } from "../ui/use-toast";
 import { TailSpin } from 'react-loader-spinner'
+import { X } from "lucide-react";
+import { useTheme } from "next-themes";
 
 
 
@@ -23,6 +23,9 @@ const NewAlbum = () => {
     const { toast } = useToast()
     const [albumName, setAlbumName] = useState('')
     const [submitting, setSubmitting] = useState(false)
+    const [open, setOpen] = useState(false)
+    const { theme } = useTheme()
+    // console.log(theme)
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         let albumname = e.target.value
@@ -54,40 +57,41 @@ const NewAlbum = () => {
         }
         finally {
             setSubmitting(false)
+            setOpen(false)
         }
 
     }
 
     return (
-        <AlertDialog>
-            <AlertDialogTrigger>
+        <Dialog open={open} onOpenChange={() => setOpen(true)}>
+            <DialogTrigger>
                 <span className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 bg-slate-900 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90 h-10 px-4 py-2"> Create Album </span>
-            </AlertDialogTrigger>
-            <AlertDialogContent>
-                <AlertDialogHeader>
-                    <AlertDialogTitle>Name your Album</AlertDialogTitle>
-                </AlertDialogHeader>
-                <AlertDialogDescription>
+            </DialogTrigger>
+            <DialogContent>
+                <DialogHeader>
+                    <X className="h-4 w-4 absolute right-8 top-4" onClick={() => setOpen(false)}></X>
+                    <DialogTitle>Name your Album</DialogTitle>
+                </DialogHeader>
+                <DialogDescription>
                     <Input value={albumName} onChange={handleChange} />
-                </AlertDialogDescription>
-                <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction onClick={handleClick}>{submitting ? 'Creating' : "Create"}
+                </DialogDescription>
+                <DialogFooter>
+                    <Button onClick={handleClick}>{submitting ? 'Creating' : "Create"}
                         {submitting ? <span className='ml-2'>
                             <TailSpin
                                 height="25"
                                 width="25"
-                                color="#FFFFFF"
+                                color={`${theme === 'dark' ? '#000000' : '#FFFFFF'}`}
                                 ariaLabel="tail-spin-loading"
                                 radius="1"
                                 wrapperStyle={{}}
                                 wrapperClass=""
                                 visible={true}
                             /></span> : null}
-                    </AlertDialogAction>
-                </AlertDialogFooter>
-            </AlertDialogContent>
-        </AlertDialog>
+                    </Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
     )
 }
 
