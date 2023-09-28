@@ -4,7 +4,7 @@ import { v2 as cloudinary } from 'cloudinary'
 import getUserModel from "@/models/user";
 import { getCurrentUser } from "@/lib/session";
 import { Session } from "next-auth";
-import { Album } from "@/app/albums/[id]/page";
+import { Album } from "@/app/(main)/albums/[id]/page";
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_NAME!,
