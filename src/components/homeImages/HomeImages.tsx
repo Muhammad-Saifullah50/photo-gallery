@@ -129,19 +129,20 @@ const HomeImages = () => {
             <Input value={searchValue} onChange={handleChange} className="w-full" />
             <Button type='button' onClick={handleClick}>Search</Button>
         </div>
+
         <div className="columns-1 sm:columns-2 md:columns-3 xl:columns-4 gap-4 mx-auto p-5 space-y-5">
             {searchResults?.results?.map((result: Result) => (
+
                 <ImageCard
                     key={result.id}
                     src={result.urls.regular}
                     width={result.width}
                     height={result.height}
                     alt={result.alt_description}
-
                 />
 
             ))}
-        </div >
+        </div>
         {searchResults &&
             <div className='flex justify-between w-full  p-5 py-5'>
 

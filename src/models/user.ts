@@ -21,6 +21,10 @@ const UserSchema = new Schema({
             images: [String]
         },
     ],
+    favourites: {
+        type: [String],
+        default: []
+    }
 })
 
 export const getUserModel = async () => {

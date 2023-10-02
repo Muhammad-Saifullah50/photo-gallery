@@ -6,7 +6,7 @@ const Loading = () => {
   const { theme } = useTheme()
   return (
 
-    <div className="w-full h-full  flex justify-center items-center">
+    <div className="w-full h-full flex justify-center items-center">
       <TailSpin
         height="80"
         width="80"
