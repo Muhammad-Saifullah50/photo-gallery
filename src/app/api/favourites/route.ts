@@ -3,6 +3,7 @@ import getUserModel from "@/models/user";
 import { Session } from "next-auth";
 import { NextRequest, NextResponse } from "next/server"
 
+
 export const POST = async (request: NextRequest) => {
     try {
         const session: Session | null = await getCurrentUser();

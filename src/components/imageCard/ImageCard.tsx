@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { usePathname } from 'next/navigation'
+import { toast } from '../ui/use-toast'
 
 type ImageCardProps = {
   src: string
@@ -17,12 +18,25 @@ const ImageCard = ({ src, width, height, alt }: ImageCardProps) => {
   const pathName = usePathname()
 
   const handleClick = async () => {
-    const response = await fetch('/api/favourites',
-      {
-        method: 'POST',
-        body: JSON.stringify(src)
-      }
-    )
+    try {
+      const response = await fetch('/api/favourites',
+        {
+          method: 'POST',
+          body: JSON.stringify(src)
+        }
+      )
+      const data = await response.json()
+
+      toast({
+        variant: data.message === "Image added to favourites successfully" ? "default" : "destructive",
+        title: data.message === "Image added to favourites successfully" ? "Success" : "Upload Failed",
+        description: data.message
+      })
+
+    } catch (error) {
+
+    }
+
   }
   return (
     <div key={src} className={`break-inside-avoid group relative`}>

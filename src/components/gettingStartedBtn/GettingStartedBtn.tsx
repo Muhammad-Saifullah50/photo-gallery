@@ -8,7 +8,9 @@ const GettingStartedBtn = () => {
     const pathName = usePathname();
 
     return (
-        pathName === '/' || '' ? (<Link href='/gallery'><Button>Get Started</Button></Link>) : null
+        pathName === '/' || '' ? (<Link href='/gallery'>
+            <Button
+            >Get Started</Button></Link>) : null
     )
 }
 

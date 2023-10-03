@@ -59,25 +59,25 @@ const Sidebar = async () => {
         </div>
 
         <div>
-          <Link className='w-full px-3 py-2  dark:invert' href='/'>
+          <Link className='w-full px-3 py-2  dark:invert' href='/gallery'>
             <GrGallery size='33' />
           </Link>
         </div>
 
         <div>
-          <Link className='w-full px-3 py-2 ' href='/'>
+          <Link className='w-full px-3 py-2 'href={`/favorites/${userId}`}>
             <AiOutlineHeart size='38' />
           </Link>
         </div>
 
         <div>
-          <Link className='w-full px-3 py-2 ' href='/'>
+          <Link className='w-full px-3 py-2 ' href={`/albums/${userId}`}>
             <IoAlbums size='35' />
           </Link>
         </div>
 
         <div>
-          <Link className='w-full px-3 py-2 ' href='/'>
+          <Link className='w-full px-3 py-2 ' href={`/uploads/${userId}`}>
             <AiOutlineUpload size='35' />
           </Link>
         </div>

@@ -19,8 +19,8 @@ const Favorites = async () => {
 
   return (<>
     <h1 className="font-bold text-2xl pl-3 pt-9">Your Favourites</h1>
-    <div className={`${sessionUser.favourites.length !== 0 ? 'columns-1 sm:columns-2 md:columns-3 xl:columns-4 gap-4 mx-auto p-5 space-y-5' : 'flex justify-center items-center w-full h-full'}`}>
-      {sessionUser && sessionUser.favourites.length !== 0 ? (
+    <div className={`${sessionUser?.favourites.length !== 0 ? 'columns-1 sm:columns-2 md:columns-3 xl:columns-4 gap-4 mx-auto p-5 space-y-5' : 'flex justify-center items-center w-full h-full'}`}>
+      {sessionUser && sessionUser?.favourites.length !== 0 ? (
         sessionUser.favourites.map((imgPath: string, i: number) => (
           <ImageCard
             key={i}
