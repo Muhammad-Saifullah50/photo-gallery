@@ -1,6 +1,7 @@
 "use client"
 import Image from 'next/image'
 import React, { useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 type ImageCardProps = {
   src: string
@@ -13,6 +14,8 @@ type ImageCardProps = {
 const ImageCard = ({ src, width, height, alt }: ImageCardProps) => {
 
   const [liked, setLiked] = useState(false)
+  const pathName = usePathname()
+
   const handleClick = async () => {
     const response = await fetch('/api/favourites',
       {
@@ -20,7 +23,6 @@ const ImageCard = ({ src, width, height, alt }: ImageCardProps) => {
         body: JSON.stringify(src)
       }
     )
-    console.log(response)
   }
   return (
     <div key={src} className={`break-inside-avoid group relative`}>
@@ -31,8 +33,8 @@ const ImageCard = ({ src, width, height, alt }: ImageCardProps) => {
         alt={alt}
         className='rounded-lg object-contain'
       />
-      <div className='overlay bg-black bg-opacity-50 hidden group-hover:flex absolute left-0 top-0 w-full h-full rounded-lg '>
-        <div className='group/heart'>
+      <div className={`overlay bg-black bg-opacity-50 hidden group-hover:flex absolute left-0 top-0 w-full h-full rounded-lg ${pathName.includes('/favorites') ? 'group-hover:hidden' : 'block'}`}>
+        <div className={`group/heart `}>
           <Image
             src={`${liked ? '/heart-red.png' : '/heart.svg'}`}
             width={25}

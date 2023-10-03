@@ -30,7 +30,9 @@ const UploadPage = async () => {
         <h1 className="font-bold text-2xl pl-3 pt-9">Your Uploaded Images</h1>
         <Upload albums={albumResult} />
 
-        <div className="columns-1 sm:columns-2 md:columns-3 xl:columns-4 gap-4 mx-auto p-5 space-y-5">
+        <div className={`${sessionUser?.albums?.length !== 0
+            ? 'columns-1 sm:columns-2 md:columns-3 xl:columns-4 gap-4 mx-auto p-5 space-y-5'
+            : 'flex justify-center items-center w-full h-full'}`}>
             {sessionUser && sessionUser.albums.length !== 0 ? (
                 sessionUser.albums.flatMap((album: Album) => album.images || []).map((imgPath: string, i: number) => (
                     <ImageCard
@@ -42,7 +44,7 @@ const UploadPage = async () => {
                     />
                 ))
             ) : (
-                <div className="flex justify-center items-center w-full pt-40">
+                <div>
                     <p className="font-semibold text-lg">Sorry! You have not uploaded any images yet</p>
                 </div>
             )}

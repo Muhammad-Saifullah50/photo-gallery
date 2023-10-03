@@ -17,11 +17,11 @@ export const POST = async (request: NextRequest) => {
         });
 
         const data = await request.json();
-        console.log(data)
+        // console.log(data)
 
         sessionUser.favourites.push(data)
         await sessionUser.save();
-        console.log(sessionUser)
+        // console.log(sessionUser)
 
 
         return NextResponse.json({ message: "Image added to favourites successfully" }, { status: 200 })
