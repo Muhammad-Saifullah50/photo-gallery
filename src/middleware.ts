@@ -7,14 +7,25 @@ export const middleware = async (request: NextRequest) => {
 
     const publicPath = pathname === '/' || pathname === '/gallery' || pathname === '/signin'
 
+    const hasBeenRedirected = request.cookies.get('hasBeenRedirected');
+
+
     if (!publicPath && !token) {
-        return NextResponse.redirect(new URL('/signin', request.nextUrl))
-    }
-    if (token ) {
-        return NextResponse.redirect(new URL('/gallery', request.nextUrl))
+        const response = NextResponse.redirect(new URL('/signin', request.nextUrl))
+        return response
+
     }
 
+    if (token && !hasBeenRedirected) {
+        const response = NextResponse.redirect((new URL('/gallery', request.nextUrl)))
+        response.cookies.set('hasBeenRedirected', 'true');
+        return response
+    }
+    const response = NextResponse.next()
+    return response
 }
+
+
 
 export const config =
 {
@@ -24,6 +35,7 @@ export const config =
         '/profile/:path*',
         '/uploads/:path*',
         '/signin',
+        '/gallery'
 
     ]
 }
