@@ -2,6 +2,7 @@
 import { getProviders, signIn } from 'next-auth/react';
 import React, { useEffect, useState } from 'react'
 import { Button } from '../ui/button';
+import { usePathname } from 'next/navigation';
 
 type Provider = {
     id: string;
@@ -16,7 +17,7 @@ type Providers = Record<string, Provider>
 
 const AuthProviders = () => {
     const [AuthProviders, setAuthProviders] = useState<Providers | null>(null)
-
+const pathname = usePathname()
     useEffect(() => {
         const fetchProviders = async () => {
             const response = await getProviders();
@@ -34,6 +35,7 @@ const AuthProviders = () => {
                     <Button
                         key={i}
                         onClick={() => signIn(provider?.id)}
+                       
                     >Sign In</Button>
                 ))}
             </div>

@@ -2,7 +2,7 @@
 
 const Home = () => {
   return (
-    <section className="w-full h-full overflow-hidden relative -z-10">
+    <section className="w-full h-screen overflow-hidden relative -z-10">
       <video autoPlay muted loop className="w-full h-full object-cover md:object-fill "> 
         <source src="/bg.mp4" type="video/mp4" />
        
