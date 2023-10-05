@@ -7,6 +7,7 @@ import Footer from "./footer/Footer";
 import GettingStartedBtn from "./gettingStartedBtn/GettingStartedBtn";
 import Upload from "./upload/Upload";
 import NewAlbum from "./new-album/NewAlbum";
+import AlbumList from "./albumList/AlbumList";
 export {
     Navbar,
     AuthProviders,
@@ -17,4 +18,5 @@ export {
     GettingStartedBtn,
     Upload,
     NewAlbum,
+    AlbumList
 }

@@ -80,12 +80,18 @@ export const authOptions: NextAuthOptions = {
             }
         },
     },
-};
+} satisfies NextAuthOptions;
 
 export const getCurrentUser = async () => {
-    await connectToDB();
-    const session = await getServerSession(authOptions)
-    // console.log(session)
-    
-    return session
+    try {
+        await connectToDB();
+        const session = await getServerSession(authOptions)
+        // console.log(session)
+        return session
+
+    } catch (error) {
+        console.error(error)
+    }
+
+
 }

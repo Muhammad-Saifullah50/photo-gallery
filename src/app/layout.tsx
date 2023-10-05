@@ -4,7 +4,9 @@ import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme/ThemeProvider'
 import { Footer, Navbar } from '@/components'
 import { Toaster } from "@/components/ui/toaster"
-import { Sidebar } from '@/components'
+import { SessionProvider } from 'next-auth/react'
+import { getCurrentUser } from '@/lib/session'
+
 const inter = Inter({
   subsets: ['latin']
 })
@@ -22,17 +24,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} dark:bg-zinc-950`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          {children}
-          <Toaster />
-          <Footer />
-        </ThemeProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Navbar />
+            {children}
+            <Toaster />
+            <Footer />
+          </ThemeProvider>
       </body>
 
     </html >

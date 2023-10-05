@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/dialog"
 import { Button } from '../ui/button'
 import { useTheme } from 'next-themes'
+import { NewAlbum } from '..'
 
 
 const Upload = ({ albums }: any) => {
@@ -105,30 +106,33 @@ const Upload = ({ albums }: any) => {
                             Choose an album for your image
                         </DialogTitle>
                         <DialogDescription>
-                            <select name="album" id="album" value={selectedAlbum === '' ? albums?.[0]?.id : selectedAlbum} onChange={handleAlbumChange}>
+                            {albums.length !== 0 ? <select name="album" id="album" value={selectedAlbum === '' ? albums?.[0]?.id : selectedAlbum} onChange={handleAlbumChange}>
                                 {albums?.map((item: any) => (
                                     <option
                                         className='text-base font-medium my-2'
                                         key={item.name}
                                         value={item.id}
                                     >{item.name}</option>))}
-                            </select>
+                            </select> : <p>Create an album first</p>}
+
                         </DialogDescription>
                     </DialogHeader>
                     <DialogFooter>
-                        <Button onClick={handleClick}>{submitting ? 'Uploading' : 'Continue'}
-                            {submitting ? <span className='ml-2'>
-                                <TailSpin
-                                    height="25"
-                                    width="25"
-                                    color={`${theme === 'dark' ? '#000000' : '#FFFFFF'}`}
-                                    ariaLabel="tail-spin-loading"
-                                    radius="1"
-                                    wrapperStyle={{}}
-                                    wrapperClass=""
-                                    visible={true}
-                                /></span> : null}
-                        </Button>
+                        {albums.length !== 0 ?
+                            <Button onClick={handleClick}>{submitting ? 'Uploading' : 'Continue'}
+                                {submitting ? <span className='ml-2'>
+                                    <TailSpin
+                                        height="25"
+                                        width="25"
+                                        color={`${theme === 'dark' ? '#000000' : '#FFFFFF'}`}
+                                        ariaLabel="tail-spin-loading"
+                                        radius="1"
+                                        wrapperStyle={{}}
+                                        wrapperClass=""
+                                        visible={true}
+                                    /></span> : null}
+                            </Button> :
+                            <NewAlbum />}
                     </DialogFooter>
                 </DialogContent>
             </Dialog>
