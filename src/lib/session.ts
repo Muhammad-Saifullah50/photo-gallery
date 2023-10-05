@@ -85,5 +85,7 @@ export const authOptions: NextAuthOptions = {
 export const getCurrentUser = async () => {
     await connectToDB();
     const session = await getServerSession(authOptions)
+    // console.log(session)
+    
     return session
 }

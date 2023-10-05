@@ -15,14 +15,14 @@ type Provider = {
 
 type Providers = Record<string, Provider>
 
-const AuthProviders = () => {
+const AuthProviders = ({ classname }: { classname?: string }) => {
     const [AuthProviders, setAuthProviders] = useState<Providers | null>(null)
-const pathname = usePathname()
+    const pathname = usePathname()
     useEffect(() => {
         const fetchProviders = async () => {
             const response = await getProviders();
             setAuthProviders(response)
-            console.log(response)
+            // console.log(response)
         }
         fetchProviders();
     }, [])
@@ -34,8 +34,9 @@ const pathname = usePathname()
                 {Object.values(AuthProviders).map((provider: Provider, i) => (
                     <Button
                         key={i}
+                        className={`${classname}`}
                         onClick={() => signIn(provider?.id)}
-                       
+
                     >Sign In</Button>
                 ))}
             </div>

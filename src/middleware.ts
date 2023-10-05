@@ -9,7 +9,6 @@ export const middleware = async (request: NextRequest) => {
 
     const hasBeenRedirected = request.cookies.get('hasBeenRedirected');
 
-
     if (!publicPath && !token) {
         const response = NextResponse.redirect(new URL('/signin', request.nextUrl))
         return response
@@ -21,8 +20,7 @@ export const middleware = async (request: NextRequest) => {
         response.cookies.set('hasBeenRedirected', 'true');
         return response
     }
-    const response = NextResponse.next()
-    return response
+    
 }
 
 
