@@ -8,7 +8,6 @@ export const middleware = async (request: NextRequest) => {
 
     const publicPath = pathname === '/' || pathname === '/gallery' || pathname === '/signin'
 
-
     if (!publicPath && !token) {
         const response = NextResponse.redirect(new URL('/signin', request.nextUrl))
         return response

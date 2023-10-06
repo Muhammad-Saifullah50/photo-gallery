@@ -106,7 +106,7 @@ const Upload = ({ albums }: any) => {
                             Choose an album for your image
                         </DialogTitle>
                         <DialogDescription>
-                            {albums.length !== 0 ? <select name="album" id="album" value={selectedAlbum === '' ? albums?.[0]?.id : selectedAlbum} onChange={handleAlbumChange}>
+                            {albums?.length !== 0 ? <select name="album" id="album" value={selectedAlbum === '' ? albums?.[0]?.id : selectedAlbum} onChange={handleAlbumChange}>
                                 {albums?.map((item: any) => (
                                     <option
                                         className='text-base font-medium my-2'
@@ -118,7 +118,7 @@ const Upload = ({ albums }: any) => {
                         </DialogDescription>
                     </DialogHeader>
                     <DialogFooter>
-                        {albums.length !== 0 ?
+                        {albums?.length !== 0 ?
                             <Button onClick={handleClick}>{submitting ? 'Uploading' : 'Continue'}
                                 {submitting ? <span className='ml-2'>
                                     <TailSpin

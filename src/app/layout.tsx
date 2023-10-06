@@ -16,11 +16,12 @@ export const metadata: Metadata = {
   description: 'Discover and share favorite images',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+ 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} dark:bg-zinc-950`}>

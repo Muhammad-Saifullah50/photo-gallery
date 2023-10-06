@@ -22,7 +22,8 @@ const ImageCard = ({ src, width, height, alt }: ImageCardProps) => {
       const response = await fetch('/api/favourites',
         {
           method: 'POST',
-          body: JSON.stringify(src)
+          body: JSON.stringify(src),
+          cache: 'no-store'
         }
       )
       const data = await response.json()
