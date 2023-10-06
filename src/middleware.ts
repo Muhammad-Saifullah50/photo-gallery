@@ -4,7 +4,7 @@ export const middleware = async (request: NextRequest) => {
 
     let pathname = request.nextUrl.pathname
     
-    let token = request.cookies.get('next-auth.session-token')
+    let token = request.cookies.get('next-auth.session-token' || '__Secure-next-auth.session-token')
 
     const publicPath = pathname === '/' || pathname === '/gallery' || pathname === '/signin'
 
