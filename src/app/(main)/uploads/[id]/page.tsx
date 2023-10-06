@@ -5,7 +5,7 @@ import getUserModel from "@/models/user";
 import { Session } from "next-auth";
 
 const UploadPage = async () => {
-    const session: Session | null = await getCurrentUser();
+    const session: Session | null | undefined = await getCurrentUser();
 
     const getUser = async () => {
         const user = await getUserModel();

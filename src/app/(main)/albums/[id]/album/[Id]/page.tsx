@@ -6,7 +6,7 @@ import { Album } from "../../page";
 
 const AlbumDetails = async ({ params }: any) => {
   // console.log(params)
-  const session: Session | null = await getCurrentUser();
+  const session: Session | null | undefined= await getCurrentUser();
 
   const getUser = async () => {
     const user = await getUserModel();

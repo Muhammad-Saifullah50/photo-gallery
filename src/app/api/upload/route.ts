@@ -13,7 +13,7 @@ cloudinary.config({
 })
 
 export const POST = async (request: NextRequest) => {
-    const session: Session | null = await getCurrentUser();
+    const session: Session | null | undefined = await getCurrentUser();
     const getUser = async () => {
         const user = await getUserModel()
         return user
