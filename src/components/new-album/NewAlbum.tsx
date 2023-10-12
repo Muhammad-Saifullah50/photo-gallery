@@ -52,8 +52,7 @@ const NewAlbum = () => {
                 title: data.message === 'Album added successfully' ? "Success" : "Upload Failed",
                 description: data.message,
             })
-            if (data.message === 'Album added successfully') 
-            { alert('Please refresh the page to seee the new album, active development is going on this bug') }
+            
         } catch (error) {
             console.error(error)
         }
