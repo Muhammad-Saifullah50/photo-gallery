@@ -72,8 +72,9 @@ const Upload = ({ albums }: any) => {
                 variant: data.message === 'Image uploaded successfully' ? "default" : "destructive",
                 title: data.message === 'Image uploaded successfully' ? "Success" : "Upload Failed",
                 description: data.message,
-
             })
+            if (data.message === 'Image uploaded successfully') 
+            { alert('Please refresh the page to see the image, active development is going on this bug') }
         } catch (error) {
             console.error(error)
         }

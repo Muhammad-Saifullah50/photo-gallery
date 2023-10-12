@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <section className="w-full h-screen overflow-hidden relative -z-10">
       <video autoPlay muted loop className="w-full h-full object-cover md:object-fill "> 
-        <source src="/bg.mp4" type="video/mp4" />
+        <source rel="preload" src="https://res.cloudinary.com/daqcrzwnr/video/upload/v1695178102/bg_1_vdrpmj.mp4" type="video/mp4" />
        
        </video>
 
