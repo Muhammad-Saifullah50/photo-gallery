@@ -23,7 +23,6 @@ const ImageCard = ({ src, width, height, alt }: ImageCardProps) => {
         {
           method: 'POST',
           body: JSON.stringify(src),
-          cache: 'no-store'
         }
       )
       const data = await response.json()
@@ -35,7 +34,7 @@ const ImageCard = ({ src, width, height, alt }: ImageCardProps) => {
       })
 
     } catch (error) {
-
+console.log(error)
     }
 
   }

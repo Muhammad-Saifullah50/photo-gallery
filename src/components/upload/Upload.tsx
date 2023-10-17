@@ -18,6 +18,7 @@ import {
 import { Button } from '../ui/button'
 import { useTheme } from 'next-themes'
 import { NewAlbum } from '..'
+import { useRouter } from 'next/navigation'
 
 
 const Upload = ({ albums }: any) => {
@@ -30,6 +31,7 @@ const Upload = ({ albums }: any) => {
     const { theme } = useTheme()
     const [imageUrl, setImageUrl] = useState<string>('')
     // console.log(imageUrl)
+    const router = useRouter();
     const handleImageChange = async (e: ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
 
@@ -81,6 +83,7 @@ const Upload = ({ albums }: any) => {
         finally {
             setSubmitting(false)
             setOpen(false)
+            router.refresh()
         }
     }
     const handleAlbumChange = (e: ChangeEvent<HTMLSelectElement>) => {

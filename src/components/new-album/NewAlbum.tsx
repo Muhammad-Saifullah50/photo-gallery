@@ -16,6 +16,7 @@ import { toast, useToast } from "../ui/use-toast";
 import { TailSpin } from 'react-loader-spinner'
 import { X } from "lucide-react";
 import { useTheme } from "next-themes";
+import {useRouter } from "next/navigation";
 
 
 
@@ -25,6 +26,7 @@ const NewAlbum = () => {
     const [submitting, setSubmitting] = useState(false)
     const [open, setOpen] = useState(false)
     const { theme } = useTheme()
+    const router = useRouter()
     // console.log(theme)
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -59,6 +61,8 @@ const NewAlbum = () => {
         finally {
             setSubmitting(false)
             setOpen(false)
+            router.refresh()
+
         }
 
     }

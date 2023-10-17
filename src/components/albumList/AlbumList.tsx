@@ -2,9 +2,6 @@
 import { Album } from '@/app/(main)/albums/[id]/page';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
-
 type Props = {
     sessionUser: string, // as it is parsed into json string
     userId: string | null
