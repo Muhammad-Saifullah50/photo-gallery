@@ -12,16 +12,20 @@ const Navbar = async () => {
     const userId = (session?.user as { id: string })?.id || null
     return (
         <header className='flex justify-between items-center px-5 md:px-10 py-2 border-gray-600 border-b-2 sticky top-0 left-0 z-20 bg-white dark:bg-zinc-950' >
-            <div className="logo flex gap-3 justify-start items-center">
-                <Image
-                    src='/logo.png'
-                    width={40}
-                    height={40}
-                    alt='logo'
-                    className='dark:invert'
-                />
-                <h1 className='text-lg font-semibold dark:text-white'>Photooose</h1>
-            </div>
+            <Link href='/'>
+
+                <div className="logo flex gap-3 justify-start items-center">
+                    <Image
+                        src='/logo.png'
+                        width={40}
+                        height={40}
+                        alt='logo'
+                        className='dark:invert'
+                    />
+                    <h1 className='max-sm:hidden text-lg font-semibold dark:text-white'>Photooose</h1>
+                </div>
+            </Link>
+
 
             <div className="profile flex justify-between items-center gap-5">
                 <ModeToggle />
@@ -41,10 +45,8 @@ const Navbar = async () => {
                                 />
                             </Link>
                             <SignoutBtn />
-                            <GettingStartedBtn />
                         </>)
                         : <> <AuthProviders />
-                            <GettingStartedBtn />
                         </>}
 
                 </div>
