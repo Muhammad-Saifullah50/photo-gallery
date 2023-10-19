@@ -31,7 +31,7 @@ const AlbumDetails = async ({ params }: any) => {
     <div className={`${currentAlbum?.images.length > 0
       ? 'columns-1 sm:columns-2 md:columns-3 xl:columns-4 gap-4 mx-auto p-5 space-y-5'
       : 'flex justify-center items-center w-full h-full'}`}>
-      {currentAlbum?.images.length > 0 ? currentAlbum?.images.map((image: string, i: number) => (
+      {currentAlbum?.images.length > 0 ? currentAlbum?.images?.map((image: string, i: number) => (
         <ImageCard
           key={i}
           src={image}

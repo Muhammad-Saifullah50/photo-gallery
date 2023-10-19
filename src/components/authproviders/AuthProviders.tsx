@@ -31,7 +31,7 @@ const AuthProviders = ({ classname }: { classname?: string }) => {
     if (AuthProviders) {
         return (
             <div>
-                {Object.values(AuthProviders).map((provider: Provider, i) => (
+                {Object.values(AuthProviders)?.map((provider: Provider, i) => (
                     <Button
                         key={i}
                         className={`${classname}`}

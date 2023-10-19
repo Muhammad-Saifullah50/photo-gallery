@@ -19,7 +19,7 @@ const UploadPage = async () => {
     // console.log(sessionUser);
 
     const getAlbums = () => {
-        const albums = sessionUser?.albums.map((album: Album) => ({ name: album.name, id: album._id.toString() }))
+        const albums = sessionUser?.albums?.map((album: Album) => ({ name: album.name, id: album._id.toString() }))
         return albums;
     }
     const albumResult = await getAlbums();
@@ -34,7 +34,7 @@ const UploadPage = async () => {
             ? 'columns-1 sm:columns-2 md:columns-3 xl:columns-4 gap-4 mx-auto p-5 space-y-5'
             : 'flex justify-center items-center w-full h-full'}`}>
             {sessionUser && sessionUser.albums.length !== 0 ? (
-                sessionUser.albums.flatMap((album: Album) => album.images || []).map((imgPath: string, i: number) => (
+                sessionUser.albums.flatMap((album: Album) => album.images || [])?.map((imgPath: string, i: number) => (
                     <ImageCard
                         key={i}
                         src={imgPath}

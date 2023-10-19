@@ -4,7 +4,6 @@ import { getCurrentUser } from '@/lib/session'
 import { AuthProviders, GettingStartedBtn, SignoutBtn } from '..'
 import { ModeToggle } from '../theme/ThemeSwitcher'
 import Link from 'next/link'
-import { Button } from '../ui/button'
 const Navbar = async () => {
 
     const session = await getCurrentUser();
