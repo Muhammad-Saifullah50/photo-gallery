@@ -1,12 +1,12 @@
 const SSUETCourseComparison = () => {
     return (
-        <div className="container mx-auto px-4 py-8">
-            <h1 className="text-3xl font-bold mb-6">SSUET Course Comparison</h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className=" shadow-md rounded-lg p-6">
-                    <h2 className="text-2xl font-semibold mb-4">BSAI</h2>
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 1</h4>
+        <div className="container px-4 py-8 mx-auto">
+            <h1 className="mb-6 text-3xl font-bold">SSUET Course Comparison</h1>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                <div className="p-6 rounded-lg shadow-md ">
+                    <h2 className="mb-4 text-2xl font-semibold">BSAI</h2>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 1</h4>
                         <li className="bg-green-700">Functional English</li>
                         <li>Applications of ICT</li>
                         <li>Applications of ICT – Lab</li>
@@ -17,8 +17,8 @@ const SSUETCourseComparison = () => {
                         <li>Pakistan Studies and Aligarh Movement</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 2</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 2</h4>
                         <li className="bg-teal-700">Communication Skills</li>
                         <li className="bg-amber-700">Applied Physics</li>
                         <li className="bg-red-700">Applied Physics – Lab</li>
@@ -30,8 +30,8 @@ const SSUETCourseComparison = () => {
                         <li className="bg-amber-500">Digital Logic Design – Lab</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 3</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 3</h4>
                         <li>Probability and Statistics</li>
                         <li>Data Structure and Algorithms</li>
                         <li>Probability and Statistics – Lab</li>
@@ -43,8 +43,8 @@ const SSUETCourseComparison = () => {
                         <li className="bg-indigo-600">Artificial Intelligence – Lab</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 4</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 4</h4>
                         <li className="bg-lime-500">Database Systems</li>
                         <li>Web Engineering -Lab</li>
                         <li>Programming for AI</li>
@@ -56,8 +56,8 @@ const SSUETCourseComparison = () => {
                         <li>Web Engineering</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 5</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 5</h4>
                         <li className="bg-orange-600">Operating Systems</li>
                         <li className="bg-orange-600">Operating Systems – Lab</li>
                         <li className="bg-cyan-600">Information Security</li>
@@ -69,8 +69,8 @@ const SSUETCourseComparison = () => {
                         <li>Technical Report Writing</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 6</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 6</h4>
                         <li>Analysis of Algorithm</li>
                         <li>Elective – I</li>
                         <li>Knowledge Representation and Reasoning</li>
@@ -80,8 +80,8 @@ const SSUETCourseComparison = () => {
                         <li>Artificial Neural Network and Deep Learning – Lab</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 7</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 7</h4>
                         <li>Computer Vision</li>
                         <li>Parallel and Distributed Computing</li>
                         <li>Computer Vision Lab</li>
@@ -91,8 +91,8 @@ const SSUETCourseComparison = () => {
                         <li>Final year project – I</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 8</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 8</h4>
                         <li>Financial Accounting</li>
                         <li>Elective -III</li>
                         <li>Elective – IV</li>
@@ -100,8 +100,8 @@ const SSUETCourseComparison = () => {
                         <li>Civics and Community Engagement</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Electives</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Electives</h4>
 
                         Natural Language Processing
 
@@ -137,10 +137,10 @@ const SSUETCourseComparison = () => {
                     </ul>
                 </div>
 
-                <div className=" shadow-md rounded-lg p-6">
-                    <h2 className="text-2xl font-semibold mb-4">BSSE</h2>
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 1</h4>
+                <div className="p-6 rounded-lg shadow-md ">
+                    <h2 className="mb-4 text-2xl font-semibold">BSSE</h2>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 1</h4>
                         <li className="bg-purple-700">Linear Algebra 3</li>
                         <li>Introduction to Computing L</li>
                         <li>Introduction to Computing T</li>
@@ -151,8 +151,8 @@ const SSUETCourseComparison = () => {
                         <li className="bg-green-700">Functional English 3</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 2</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 2</h4>
                         <li className="bg-lime-800">Object Oriented Programming T</li>
                         <li className="bg-lime-800">Object Oriented Programming L</li>
                         <li>Pakistan Studies & Aligarh Movement 3</li>
@@ -164,8 +164,8 @@ const SSUETCourseComparison = () => {
                         <li className="bg-teal-900">Introduction to Software Engineering</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 3</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 3</h4>
                         <li>SE Electives-I</li>
                         <li>Discrete Mathematics</li>
                         <li className="bg-teal-700">Communication Skills</li>
@@ -174,8 +174,8 @@ const SSUETCourseComparison = () => {
                         <li>Data Structures and Algorithm L</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 4</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 4</h4>
                         <li>Software Design and Architecture L</li>
                         <li>Software Design and Architecture T</li>
                         <li className="bg-lime-500">Introduction to Database Systems L</li>
@@ -186,8 +186,8 @@ const SSUETCourseComparison = () => {
                         <li>Technical Writing 2</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 5</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 5</h4>
                         <li>Computer Communication and Networks L</li>
                         <li>Computer Communication and Networks T</li>
                         <li>Software construction and Development L</li>
@@ -197,8 +197,8 @@ const SSUETCourseComparison = () => {
                         <li>SE ELECTIVE-II</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 6</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 6</h4>
                         <li>Web Engineering</li>
                         <li>SE ELECTIVE-III</li>
                         <li>SE ELECTIVE-III</li>
@@ -208,8 +208,8 @@ const SSUETCourseComparison = () => {
                         <li>Software Quality Engineering</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 7</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 7</h4>
                         <li>Software Re-Engineering</li>
                         <li>SE ELECTIVE-IV</li>
                         <li>SE SUPPORTING – II</li>
@@ -218,8 +218,8 @@ const SSUETCourseComparison = () => {
                         <li>Final Year Project-I</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 8</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 8</h4>
                         <li>Final Year Project-II</li>
                         <li>SE ELECTIVE-V</li>
                         <li>SE SUPPORTING – III</li>
@@ -228,72 +228,72 @@ const SSUETCourseComparison = () => {
                     </ul>
 
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Electives</h4>
-                        Software Metrics
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Electives</h4>
+                        <li>Software Metrics</li>
 
-                        Big Data Analytics
+                        <li>Big Data Analytics</li>
 
-                        Agent Based Software Engineering
+                        <li>Agent Based Software Engineering</li>
 
-                        Computer Graphics T
+                        <li>Computer Graphics T</li>
 
-                        Computer Graphics
+                        <li>Computer Graphics</li>
 
-                        Design Patterns
+                        <li>Design Patterns</li>
 
-                        Data Warehousing and Data Mining
+                        <li>Data Warehousing and Data Mining</li>
 
-                        E-Commerce
+                        <li>E-Commerce</li>
 
-                        Artificial Intelligence
+                        <li>Artificial Intelligence</li>
 
-                        Artificial Intelligence
+                        <li>Artificial Intelligence</li>
 
-                        Enterprise Systems Engineering
+                        <li>Enterprise Systems Engineering</li>
 
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >University  Electives</h4>
-                        Foreign Language
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >University  Electives</h4>
+                        <li>Foreign Language</li>
 
-                        Principles of Management & Enterpreneurship
+                        <li>Principles of Management & Enterpreneurship</li>
 
-                        Engineering Economics
+                        <li>Engineering Economics</li>
 
-                        Introduction to Accounting and Finance
+                        <li>Introduction to Accounting and Finance</li>
 
-                        Organizational Behaviour
+                        <li>Organizational Behaviour</li>
 
-                        Psychology
+                        <li>Psychology</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Supporting Electives</h4>
-                        Simulation and Modeling L
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Supporting Electives</h4>
+                        <li>Simulation and Modeling L</li>
 
-                        Simulation and Modeling T
+                        <li>Simulation and Modeling T</li>
 
-                        Analysis of Algorithms L
+                        <li>Analysis of Algorithms L</li>
 
-                        Analysis of Algorithms T
+                        <li>Analysis of Algorithms T</li>
 
-                        Compiler Construction
+                        <li>Compiler Construction</li>
 
-                        Business Process Engineering
+                        <li>Business Process Engineering</li>
 
-                        Operations Research
+                        <li>Operations Research</li>
 
-                        Formal Methods in Software Engineering
+                        <li>Formal Methods in Software Engineering</li>
 
                     </ul>
                 </div>
 
-                <div className=" shadow-md rounded-lg p-6">
-                    <h2 className="text-2xl font-semibold mb-4">BSCS</h2>
-                    <ul className="list-disc pl-6 my-6">
-                    <h4 className='font-semibold my-2' >Semester 1</h4>
+                <div className="p-6 rounded-lg shadow-md ">
+                    <h2 className="mb-4 text-2xl font-semibold">BSCS</h2>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 1</h4>
                         <li>Pakistan Studies & Aligarh Movement</li>
                         <li className="bg-pink-700">Programming Fundamentals Theory</li>
                         <li className="bg-blue-700">Programming Fundamentals Lab</li>
@@ -303,8 +303,8 @@ const SSUETCourseComparison = () => {
                         <li className="bg-amber-700">Applied Physics Theory</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 2</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 2</h4>
                         <li>University Elective-I</li>
                         <li className="bg-lime-800">Object Oriented Programming Lab</li>
                         <li className="bg-lime-800">Object Oriented Programming Theory</li>
@@ -314,8 +314,8 @@ const SSUETCourseComparison = () => {
                         <li>Calculus & Analytical Geometry</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 3</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 3</h4>
                         <li>Differential Equations</li>
                         <li className="bg-yellow-700">Computer Organization & Assembly Language Lab</li>
                         <li className="bg-yellow-700">Computer Organization & Assembly Language Theory</li>
@@ -325,8 +325,8 @@ const SSUETCourseComparison = () => {
                         <li>Data Structures & Algorithms Theory</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 4</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 4</h4>
                         <li>Multivariable calculus</li>
                         <li className="bg-emerald-700">Software Engineering</li>
                         <li className="bg-lime-500">Database Systems Lab</li>
@@ -336,8 +336,8 @@ const SSUETCourseComparison = () => {
                         <li>Theory of Automata & Formal Languages</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 5</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 5</h4>
                         <li>Web Engineering Lab</li>
                         <li>Web Engineering Theory</li>
                         <li>Computer Networks Lab</li>
@@ -348,8 +348,8 @@ const SSUETCourseComparison = () => {
                         <li>Compiler Construction</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 6</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 6</h4>
                         <li>Islamic Studies / Ethical Behavior</li>
                         <li>Design & Analysis of Algorithms</li>
                         <li>CS Elective-I</li>
@@ -359,8 +359,8 @@ const SSUETCourseComparison = () => {
                         <li className="bg-rose-600">Artificial Intelligence Theory</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 7</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 7</h4>
                         <li>Professional Practices</li>
                         <li>University Elective-II</li>
                         <li>Final Year Project-I</li>
@@ -368,8 +368,8 @@ const SSUETCourseComparison = () => {
                         <li>CS Elective-II</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Semester 8</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Semester 8</h4>
                         <li>University Elective-III</li>
                         <li>Parallel & Distributed Computing</li>
                         <li>Final Year Project-II</li>
@@ -377,128 +377,128 @@ const SSUETCourseComparison = () => {
                         <li>CS Elective-IV</li>
                     </ul>
 
-                    <ul className="list-disc pl-6 my-6">
-                        <h4 className='font-semibold my-2' >Electives</h4>
+                    <ul className="pl-6 my-6 list-disc">
+                        <h4 className='my-2 font-semibold' >Electives</h4>
 
-                        Social Network Analysis
+                        <li>Social Network Analysis</li>
 
-                        Web Security, Privacy & Commerce
+                        <li>Web Security, Privacy & Commerce</li>
 
-                        Social Computing
+                        <li>Social Computing</li>
 
-                        Semantic Web
+                        <li>Semantic Web</li>
 
-                        Web Mining
+                        <li>Web Mining</li>
 
-                        Design Pattern
+                        <li>Design Pattern</li>
 
-                        Human Computer Interaction
+                        <li>Human Computer Interaction</li>
 
-                        IS Audit
+                        <li>IS Audit</li>
 
-                        Software Quality Assurance & Testing
+                        <li>Software Quality Assurance & Testing</li>
 
-                        Software Project Management
+                        <li>Software Project Management</li>
 
-                        Internet of Things (IoT)
+                        <li>Internet of Things (IoT)</li>
 
-                        Cloud Computing
+                        <li>Cloud Computing</li>
 
-                        Cyber Law & Cyber Crime
+                        <li>Cyber Law & Cyber Crime</li>
 
-                        Wireless and Mobile Security
+                        <li>Wireless and Mobile Security</li>
 
-                        Vulnerability Assessment & Reverse Engineering
+                        <li>Vulnerability Assessment & Reverse Engineering</li>
 
-                        Fog & Edge Computing
+                        <li>Fog & Edge Computing</li>
 
-                        Data Visualization
+                        <li>Data Visualization</li>
 
-                        Platform & Architecture for Data Science
+                        <li>Platform & Architecture for Data Science</li>
 
-                        Data Science
+                        <li>Data Science</li>
 
-                        Big Data Analytics
+                        <li>Big Data Analytics</li>
 
-                        Data warehousing & Data Mining
+                        <li>Data warehousing & Data Mining</li>
 
-                        Knowledge Representation & Reasoning
+                        <li>Knowledge Representation & Reasoning</li>
 
-                        Natural Language Processing
+                        <li>Natural Language Processing</li>
 
-                        Programming for Artificial Intelligence
+                        <li>Programming for Artificial Intelligence</li>
 
-                        Deep Learning
+                        <li>Deep Learning</li>
 
-                        Machine Learning
+                        <li>Machine Learning</li>
 
-                        Foreign Language
+                        <li>Foreign Language</li>
 
-                        Principles of Marketing
+                        <li>Principles of Marketing</li>
 
-                        Introduction to Accounting and Finance
+                        <li>Introduction to Accounting and Finance</li>
 
-                        Economics and Management
+                        <li>Economics and Management</li>
 
-                        Entrepreneurships
+                        <li>Entrepreneurships</li>
 
-                        Organizational Behavior
+                        <li>Organizational Behavior</li>
 
-                        Psychology
+                        <li>Psychology</li>
 
-                        Augmented & Virtual Reality
+                        <li>Augmented & Virtual Reality</li>
 
-                        Mobile Application Development
+                        <li>Mobile Application Development</li>
 
-                        Theory of Programming Languages
+                        <li>Theory of Programming Languages</li>
 
-                        Blockchain Technology
+                        <li>Blockchain Technology</li>
 
-                        Game Development
+                        <li>Game Development</li>
 
-                        Computer Graphics & Multimedia
+                        <li>Computer Graphics & Multimedia</li>
 
-                        Augmented & Virtual Reality
+                        <li>Augmented & Virtual Reality</li>
 
-                        Mobile Application Development
+                        <li>Mobile Application Development</li>
 
-                        Psychology
+                        <li>Psychology</li>
 
-                        Organizational Behavior
+                        <li>Organizational Behavior</li>
 
-                        Web Technologies Lab
+                        <li>Web Technologies Lab</li>
 
-                        Web Technologies Theory
+                        <li>Web Technologies Theory</li>
 
-                        Enterprise Systems
+                        <li>Enterprise Systems</li>
 
-                        Cloud Computing
+                        <li>Cloud Computing</li>
 
-                        Theory of Programming Languages
+                        <li>Theory of Programming Languages</li>
 
-                        Blockchain Technology
+                        <li>Blockchain Technology</li>
 
-                        Data Science
+                        <li>Data Science</li>
 
-                        Game Development
+                        <li>Game Development</li>
 
-                        Fog & Edge Computing
+                        <li>Fog & Edge Computing</li>
 
-                        Data warehousing & Data Mining
+                        <li>Data warehousing & Data Mining</li>
 
-                        Human Computer Interaction
+                        <li>Human Computer Interaction</li>
 
-                        IS Audit
+                        <li>IS Audit</li>
 
-                        Software Quality Assurance & Testing
+                        <li>Software Quality Assurance & Testing</li>
 
-                        Software Project Management
+                        <li>Software Project Management</li>
 
-                        Machine Learning
+                        <li>Machine Learning</li>
 
-                        Computer Graphics & Multimedia Lab
+                        <li>Computer Graphics & Multimedia Lab</li>
 
-                        Computer Graphics & Multimedia Theory
+                        <li>Computer Graphics & Multimedia Theory</li>
                     </ul>
                 </div>
             </div>
