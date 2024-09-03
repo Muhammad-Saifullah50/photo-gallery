@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../ui/dropdown-menu';
 import { Button } from '../ui/button';
-import getUserModel from '@/models/user';
 type Props = {
     sessionUser: string, // as it is parsed into json string
     userId: string | null
@@ -18,6 +17,14 @@ const AlbumList = ({ sessionUser, userId }: Props) => {
         const user = JSON.parse(sessionUser)
         const albumtoDelete = user.albums.find((album: Album) => album._id === id)
         const idToDelete = albumtoDelete._id
+
+        const response = await fetch('/api/deleteAlbum', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({id: idToDelete})
+        })
     }
 
     return (<>
