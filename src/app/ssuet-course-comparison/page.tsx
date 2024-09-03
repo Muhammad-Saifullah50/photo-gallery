@@ -293,7 +293,7 @@ const SSUETCourseComparison = () => {
                 <div className=" shadow-md rounded-lg p-6">
                     <h2 className="text-2xl font-semibold mb-4">BSCS</h2>
                     <ul className="list-disc pl-6 my-6">
-                        <h4 cl>Semester 1</h4>
+                    <h4 className='font-semibold my-2' >Semester 1</h4>
                         <li>Pakistan Studies & Aligarh Movement</li>
                         <li className="bg-pink-700">Programming Fundamentals Theory</li>
                         <li className="bg-blue-700">Programming Fundamentals Lab</li>
